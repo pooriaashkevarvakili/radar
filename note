@@ -1,0 +1,104 @@
+
+> radar-nuxt@1.0.0 lint /Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt
+> eslint --ext .js,.vue --fix --ignore-path .gitignore .
+
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/CityInput.vue
+  167:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/DatePicker.vue
+  166:3  warning  Prop 'flight' requires default value to be set     vue/require-default-prop
+  168:3  warning  Prop 'title' requires default value to be set      vue/require-default-prop
+  169:3  warning  Prop 'days' requires default value to be set       vue/require-default-prop
+  171:3  warning  Prop 'startDate' requires default value to be set  vue/require-default-prop
+  172:3  warning  Prop 'endDate' requires default value to be set    vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/flight/PriceCalendar.vue
+  46:11  warning  Prop 'origin' requires default value to be set       vue/require-default-prop
+  46:27  warning  Prop 'destination' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/flight/PriceCalendarDay.vue
+  30:23  warning  Prop 'price' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/flight/PriceTrackingPopUp.vue
+  78:3  warning  Prop 'priceTrackData' requires default value to be set  vue/require-default-prop
+  79:3  warning  Prop 'flightData' requires default value to be set      vue/require-default-prop
+  80:3  warning  Prop 'trackList' requires default value to be set       vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/AboutHotel.vue
+  212:3  warning  Prop 'hotelDetails' requires default value to be set  vue/require-default-prop
+  213:3  warning  Prop 'presellRooms' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/FilterHotel.vue
+   69:20  warning  Variable 'hotelType' is already declared in the upper scope  vue/no-template-shadow
+  220:20  warning  Variable 'hotelType' is already declared in the upper scope  vue/no-template-shadow
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/Hotel.vue
+  340:17  warning  Unexpected usage of 'this'                            vue/this-in-template
+  436:3   warning  Prop 'hotel' requires default value to be set         vue/require-default-prop
+  437:3   warning  Prop 'duration' requires default value to be set      vue/require-default-prop
+  438:3   warning  Prop 'cityId' requires default value to be set        vue/require-default-prop
+  439:3   warning  Prop 'inDate' requires default value to be set        vue/require-default-prop
+  440:3   warning  Prop 'outDate' requires default value to be set       vue/require-default-prop
+  442:3   warning  Prop 'cityName' requires default value to be set      vue/require-default-prop
+  443:3   warning  Prop 'hotelData' requires default value to be set     vue/require-default-prop
+  444:3   warning  Prop 'presellRooms' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/HotelDetails.vue
+  76:3  warning  Prop 'hotelDetails' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/HotelLocation.vue
+   25:76   warning  Unexpected usage of 'this'                               vue/this-in-template
+   25:111  warning  Unexpected usage of 'this'                               vue/this-in-template
+   68:78   warning  Unexpected usage of 'this'                               vue/this-in-template
+   68:113  warning  Unexpected usage of 'this'                               vue/this-in-template
+   79:15   warning  Variable 'chunk' is already declared in the upper scope  vue/no-template-shadow
+   84:23   warning  Variable 'index' is already declared in the upper scope  vue/no-template-shadow
+  101:3    warning  Prop 'hotelDetails' requires default value to be set     vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/HotelPriceCalendar.vue
+  26:11  warning  Prop 'priceCalendar' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/HotelSearchBadge.vue
+  43:3  warning  Prop 'shownCount' requires default value to be set                      vue/require-default-prop
+  81:2  warning  The "watch" property should be above the "updated" property on line 59  vue/order-in-components
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/mainPage/RadarInfo.vue
+  42:2  warning  The "computed" property should be above the "methods" property on line 37  vue/order-in-components
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/mainPage/RecommendedHotel.vue
+  18:23  warning  Variable 'i' is already declared in the upper scope  vue/no-template-shadow
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/presell/presell-sellers.vue
+  44:3  warning  Prop 'rooms' requires default value to be set  vue/require-default-prop
+  45:3  warning  Prop 'hotel' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/SellerList.vue
+  42:3  warning  Prop 'hotelDetails' requires default value to be set   vue/require-default-prop
+  43:3  warning  Prop 'capacityArray' requires default value to be set  vue/require-default-prop
+  45:3  warning  Prop 'duration' requires default value to be set       vue/require-default-prop
+  46:3  warning  Prop 'errorText' requires default value to be set      vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Hotel/SellerListGroup.vue
+  174:69  warning  Unexpected usage of 'this'                         vue/this-in-template
+  194:3   warning  Prop 'roomGroup' requires default value to be set  vue/require-default-prop
+  195:3   warning  Prop 'duration' requires default value to be set   vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/components/Share.vue
+   99:3  warning  Prop 'shownCount' requires default value to be set        vue/require-default-prop
+  100:3  warning  Prop 'totalCount' requires default value to be set        vue/require-default-prop
+  101:3  warning  Prop 'sortOption' requires default value to be set        vue/require-default-prop
+  103:3  warning  Prop 'flightSortOption' requires default value to be set  vue/require-default-prop
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/layouts/error.vue
+  13:10  warning  Prop "error" should define at least its type  vue/require-prop-types
+
+/Users/rehyane.pc/Desktop/Project/vue/radarweb-nuxt/pages/index.vue
+  134:3  error  The "PopularDestination" component has been registered but not used  vue/no-unused-components
+  135:3  error  The "RecommendedHotel" component has been registered but not used    vue/no-unused-components
+  136:3  error  The "UserSatisfaction" component has been registered but not used    vue/no-unused-components
+  137:3  error  The "CheapestHotels" component has been registered but not used      vue/no-unused-components
+  138:3  error  The "RadarInfo" component has been registered but not used           vue/no-unused-components
+
+✖ 57 problems (6 errors, 51 warnings)
+

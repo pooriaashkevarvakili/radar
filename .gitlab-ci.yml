@@ -1,0 +1,120 @@
+stages:
+  - build
+  - release_image
+  - deploy
+  - lint
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm/
+
+build:master:
+  stage: build
+  image : core.harbor.mrbilit.net/hub/library/node:14.17.0
+  variables:
+    MOUNT_POINT: /builds/$CI_PROJECT_PATH/
+  only:
+    - master
+  before_script:
+    - export VUE_APP_META="https://hotel.atighgasht.com"
+    - export VUE_APP_HOTEL_BASE="https://hotel.radar361.com"
+    - export VUE_APP_DBOOKING=https://dbooking.ir
+    - export VUE_APP_FLIGHT_API=https://flight.radar361.com
+    - export MODE=production
+    - git config --global http.sslVerify false
+    - yarn config set cache-folder /builds/$CI_PROJECT_PATH/.npm
+    - yarn config set install.prefer-offline true
+  script:
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - yarn.lock
+      - .nuxt
+      - static
+      - node_modules
+    expire_in: 1 day
+
+release_image:master:
+  stage: release_image
+  image: docker:git
+  dependencies:
+    - build:master
+  services:
+    - name: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    MOUNT_POINT: /builds/$CI_PROJECT_PATH/
+    DOCKER_TLS_CERTDIR: ""
+  only:
+    - master
+  before_script:
+    - docker info
+    - docker login -u $REGISTRY_USERNAME -p $REGISTRY_TOKEN $REGISTRY
+  script:
+    - docker build --tag $REGISTRY/radar361/$CI_PROJECT_NAME:master .
+    - docker push $REGISTRY/radar361/$CI_PROJECT_NAME:master
+  after_script:
+    - docker image prune -f
+    - docker logout
+
+build:dev:
+  stage: build
+  image : core.harbor.mrbilit.net/hub/library/node:14.17.0
+  variables:
+    MOUNT_POINT: /builds/$CI_PROJECT_PATH/
+  only:
+    - dev
+  before_script:
+    - export VUE_APP_META="https://hoteldev.atighgasht.com"
+    - export VUE_APP_HOTEL_BASE="https://hotel.dev.radar361.com"
+    - export MODE=dev
+    - git config --global http.sslVerify false
+    - yarn config set cache-folder /builds/$CI_PROJECT_PATH/.npm
+    - yarn config set install.prefer-offline true
+  script:
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - yarn.lock
+      - .nuxt
+      - static
+      - node_modules
+    expire_in: 1 day
+
+release_image:dev:
+  stage: release_image
+  image: docker:git
+  dependencies:
+    - build:dev
+  services:
+    - name: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    MOUNT_POINT: /builds/$CI_PROJECT_PATH/
+    DOCKER_TLS_CERTDIR: ""
+  only:
+    - dev
+  before_script:
+    - docker info
+    - docker login -u $REGISTRY_USERNAME -p $REGISTRY_TOKEN $REGISTRY
+  script:
+    - docker build --tag $REGISTRY/radar361/$CI_PROJECT_NAME:dev .
+    - docker push $REGISTRY/radar361/$CI_PROJECT_NAME:dev
+  after_script:
+    - docker image prune -f
+    - docker logout
+
+sonar:
+  image: node@sha256:4f0cb30bfe9cd1e1603d29a4058000d580f6137d412758e759d0931334c8a779
+  stage: lint
+  allow_failure: true
+  only:
+    - dev
+  script:
+    - npm install --save-dev sonarqube-scanner
+    - npm i
+    - npm run build
+    - ./node_modules/sonarqube-scanner/dist/bin/sonar-scanner -Dsonar.host.url="https://sonar.atighgasht.com" -Dsonar.login="$SONAR_TOKEN" -Dsonar.projectKey=radar361-web -Dsonar.sources=.

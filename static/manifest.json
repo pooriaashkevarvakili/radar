@@ -1,0 +1,23 @@
+{
+	"short_name": "radar361",
+	"name": "رادار۳۶۱",
+	"lang": "fa",
+	"icons": [
+		{
+			"src": "/Radar361.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/Radar361-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+	],
+	"start_url": "/",
+	"background_color": "#FFFFFF",
+	"display": "standalone",
+	"theme_color": "#EB384D",
+	"description": "رادار۳۶۱"
+}

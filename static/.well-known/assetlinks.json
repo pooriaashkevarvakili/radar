@@ -1,0 +1,18 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.radar361",
+      "sha256_cert_fingerprints":
+      ["AB:32:AD:0C:D6:70:71:C2:C4:10:37:10:82:1F:15:B2:2C:33:55:68:01:E6:23:48:19:B2:E4:60:22:A3:39:55"]
+    }
+  },
+{
+    "relation": [
+      "check_validation"
+    ],
+    "target": {
+      "namespace": "cafebazaar_twa",
+      "package_name": "com.radar361"
+    }
+  }]
